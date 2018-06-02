@@ -21,27 +21,27 @@ class Signup extends Component {
         return(
             <form>
               <h2>Signup</h2>
-              <div class="input-field">
+              <div className="input-field">
                 <input type="text"/>
-                <em class="help-text">
+                <em className="help-text">
                   Username
                 </em>
               </div>
-              <div class="input-field">
+              <div className="input-field">
                 <input type="password"/>
-                <em class="help-text">
+                <em className="help-text">
                   Password
                 </em>
               </div>
-              <div class="input-field">
+              <div className="input-field">
                 <input type="password"/>
-                <em class="help-text">
+                <em className="help-text">
                   Confirm password
                 </em>
               </div>
-              <div class="input-field">
+              <div className="input-field">
                 <input type="email"/>
-                <em class="help-text">
+                <em className="help-text">
                   Email
                 </em>
               </div>

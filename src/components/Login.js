@@ -18,19 +18,19 @@ class Login extends Component {
         return(
             <form onSubmit={(event)=>this.submitLogin(event)}>
               <h2>Login</h2>
-              <div class="input-field">
+              <div className="input-field">
                 <input type="text" onChange={(event) => {
                   this.setState({username:event.target.value});
                 }}/>
-                <em class="help-text">
+                <em className="help-text">
                   Username
                 </em>
               </div>
-              <div class="input-field">
+              <div className="input-field">
                 <input type="password" onChange={(event) => {
                   this.setState({password:event.target.value});
                 }}/>
-                <em class="help-text">
+                <em className="help-text">
                   Password
                 </em>
               </div>

@@ -36,8 +36,9 @@ module.exports = function (app) {
         var user = users[_.findIndex(users, {name: name})];
         if( ! user ){
           res.status(401).json({message:"User not found"});
+          return;
         }
-      
+        
         if(user.password === req.body.password) {
           var payload = {id: user.id};
           var token = jwt.sign(payload, jwtOptions.secretOrKey);

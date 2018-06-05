@@ -1,6 +1,6 @@
+import LogSign from './LogSign';
 import React, {Component} from 'react';
 import Step from './Step';
-import LogSign from './LogSign';
 import '../css/Home.css';
 
 import {connect} from 'react-redux';

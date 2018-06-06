@@ -1,5 +1,5 @@
-//https://github.com/kenny-hibino/react-places-autocomplete
 import {connect} from 'react-redux';
+import { GoogleApiWrapper} from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 import React, { Component } from 'react';
 import {selectPlace} from '../actions/itinerary';
@@ -22,8 +22,9 @@ class PlaceSelect extends Component {
           });
           return getLatLng(results[0])
       })
-      .then(({lat,lng}) => {
-          this.props.dispatch(selectPlace([lat,lng]));
+      .then((latlng) => {
+          
+          this.props.dispatch(selectPlace(latlng));
       })
       .catch(error => console.error('Error', error))
   }
@@ -65,4 +66,7 @@ class PlaceSelect extends Component {
   }
 }
 
-export default connect()(PlaceSelect);
+export default connect()(GoogleApiWrapper({
+  apiKey: ('AIzaSyCpnZV3MwYpso0pT3Bb8Nr9TqVh1EGR5Jc'),
+  libraries:['places']
+})(PlaceSelect));

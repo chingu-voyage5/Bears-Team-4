@@ -1,22 +1,20 @@
 import DateSelect from './DateSelect';
-import LeafletMap from './Map';
+import Map from './Map';
 import PlaceSelect from './PlaceSelect';
 import React, {Component} from 'react';
-import '../css/TestPage.css';
+import Suggestions from './Suggestions';
+
 
 class TestPage extends Component {
     render(){
         return (
-            <header>
-                <div class="left">
-                    <DateSelect/>
-                    <PlaceSelect/>
-                </div>
-                <div class="right">
-                    <LeafletMap/>
-                </div>
-            </header>
-        )
+            <div>
+                <DateSelect/>
+                <PlaceSelect/>
+                <Suggestions/>
+                <Map/>
+            </div>
+        );
     }
 }
 

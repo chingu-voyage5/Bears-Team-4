@@ -2,7 +2,7 @@ import DateSelect from './DateSelect';
 import Map from './Map';
 import PlaceSelect from './PlaceSelect';
 import React, {Component} from 'react';
-import Suggestions from './Suggestions';
+import Places from './Places';
 
 
 class TestPage extends Component {
@@ -11,7 +11,7 @@ class TestPage extends Component {
             <div>
                 <DateSelect/>
                 <PlaceSelect/>
-                <Suggestions/>
+                <Places/>
                 <Map/>
             </div>
         );

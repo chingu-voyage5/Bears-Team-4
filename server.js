@@ -3,7 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const passportJWT = require("passport-jwt");
 const passport = require("passport");
-const routes = require("./routes/routes.js");
+const routes = require("./routes");
 const auth = require("./auth");
 
 const app = express();
@@ -23,7 +23,7 @@ var jwtOptions = {
 
 auth(passport, passportJWT, jwtOptions);
 
-routes(app, passport, jwtOptions);
+app.use('/', routes);
 
 app.use('/',express.static('build'));
 

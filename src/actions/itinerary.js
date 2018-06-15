@@ -16,13 +16,41 @@ export function selectEndDate(date){
     };    
 }
 
-export function selectPlace(latlng){
+
+export function changeType(type){
     return function(dispatch){
         dispatch({
-            type:"NEW_PLACE",
-            payload:latlng
+            type:"CHANGE_TYPE",
+            payload:type
         });
-    };    
+    }; 
+}
+
+export function nextDay(day){
+   return function(dispatch){
+        dispatch({
+            type:"NEXT_DAY",
+            payload:day
+        });
+    };  
+}
+
+export function prevDay(day){
+   return function(dispatch){
+        dispatch({
+            type:"PREV_DAY",
+            payload:day
+        });
+    };  
+}
+
+export function addItinerary(place,datetime){
+    return function(dispatch){
+        dispatch({
+            type:"ADD_ITINERARY",
+            payload:{place,datetime}
+        });
+    }; 
 }
 
 export function showSuggestions(places){
@@ -34,52 +62,20 @@ export function showSuggestions(places){
     };  
 }
 
-export function changeType(type){
+export function changeTime(time,id){
     return function(dispatch){
         dispatch({
-            type:"CHANGE_TYPE",
-            payload:type
+            type:"CHANGE_SCHEDULE_TIME",
+            payload:{time,id}
         });
-    }; 
+    };
 }
 
-export function addItinerary(place){
+export function deletePlace(id){
     return function(dispatch){
         dispatch({
-            type:"ADD_ITINERARY",
-            payload:place
+            type:"DELETE_PLACE",
+            payload:id
         });
-    }; 
-}
-
-export function showMarkerPopUp(props,marker){
-    return function(dispatch){
-        dispatch({
-            type:"SHOW_MARKER_POPUP",
-            payload:{props,marker}
-        })
-    }
-}
-export function closeMarkerPopUp(){
-    return function(dispatch){
-        dispatch({
-            type:"CLOSE_MARKER_POPUP"
-        })
-    }    
-}
-
-export function showInfoPopUp(){
-    return function(dispatch){
-        dispatch({
-            type:"SHOW_INFO_POPUP"
-        })
-    }
-}
-
-export function closeInfoPopUp(){
-    return function(dispatch){
-        dispatch({
-            type:"CLOSE_INFO_POPUP"
-        })
-    }
+    };
 }

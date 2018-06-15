@@ -1,0 +1,71 @@
+*{
+    margin:0;
+}
+
+.clearfix {
+    background: #FFB334;
+    background: linear-gradient(10deg, #FFD534, #ffb334);
+    color: #1c1c1c;
+}
+.top h2, .top > div,.date-selector >div {
+    display:inline-block;
+}
+.clearfix:after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+.half {
+    float:left;
+    width:50%;
+    height:550px;
+    position:relative;
+}
+.half h2 {
+    text-align:center;
+}
+
+.half > .half{
+    padding-left:1rem;
+    padding-right:1rem;
+}
+
+select {
+  display: block;
+  border: 1px solid lightgray;
+  font-size: 18px;
+  border-radius: 3px;
+  width:100%;
+}
+
+.scroll {
+    overflow-y: scroll;
+    height: 476px;
+}
+.card {
+    background:white;
+    margin:0.5rem;
+    padding:0.5rem;
+    text-align:left;
+}
+.autocomplete-dropdown-container{
+    position:absolute;
+    z-index:5;
+}
+
+.schedule {
+    text-align:center;
+}
+.schedule h2 {
+    display:inline-block;
+}
+
+.schedule i {
+    cursor:pointer;
+}
+
+.card .input-field input {
+    display: inline-block;
+}

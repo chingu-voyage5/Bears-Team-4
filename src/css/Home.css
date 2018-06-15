@@ -86,7 +86,7 @@ form h2 {
    margin: 1em 0px;
 }
 
-.input-field > input {
+.input-field input {
   display: block;
   border: 1px solid lightgray;
   font-size: 18px;
@@ -97,7 +97,7 @@ form h2 {
   font-size: 14px;
 }
 
-button {
+button,.button {
   background: #7BA3DB;
   border: none;
   font-size: 18px;
@@ -106,6 +106,7 @@ button {
   color: whitesmoke;
   border-radius: 3px;
   box-shadow: 2px 2px 4px powderblue;
+  text-decoration:none;
 }
 
 .start {
@@ -128,7 +129,7 @@ button {
   padding: .2rem 1rem !important;
 }
 
-i {
+button > i {
   border: 2px solid black;
   padding: 2px 4px;
   border-radius: 50%;

@@ -1,44 +1,36 @@
 import {connect} from 'react-redux';
 import DatePicker from 'react-datepicker';
-import moment from 'moment';
 import React, { Component } from 'react';
 import {selectStartDate, selectEndDate} from '../actions/itinerary';
 import 'react-datepicker/dist/react-datepicker.css';
 
 class DateSelect extends Component {
-    constructor(){
-        super();
-        this.state = {
-            start:moment(),
-            end:moment()
-        };
-    }
     setStartDate(date){
-        this.setState({start:date});
+        //this.setState({start:date});
         this.props.dispatch(selectStartDate(date));
     }
     setEndDate(date){
-        this.setState({end:date});
+        //this.setState({end:date});
         this.props.dispatch(selectEndDate(date));
     }
     render(){
         return(
-            <div>
-                From
+            <div className="date-selector input-field">
+                <h2>From&nbsp;</h2>
                 <DatePicker
-                    selected={this.state.start}
+                    selected={this.props.startdate}
                     selectsStart
-                    startDate={this.state.start}
-                    endDate={this.state.end}
-                    onChange={(date)=>this.setStartDate(date)}
+                    startDate={this.props.props}
+                    endDate={this.props.enddate}
+                    onChange={(date)=>this.setStartDate(date.startOf('day'))}
                 />
-                To
+                <h2>To&nbsp;</h2>
                 <DatePicker
-                    selected={this.state.end}
+                    selected={this.props.enddate}
                     selectsEnd
-                    startDate={this.state.start}
-                    endDate={this.state.end}
-                    onChange={(date)=>this.setEndDate(date)}
+                    startDate={this.props.startdate}
+                    endDate={this.props.enddate}
+                    onChange={(date)=>this.setEndDate(date.startOf('day'))}
                 />
             </div>
         )
@@ -46,5 +38,11 @@ class DateSelect extends Component {
     
 }
 
+const mapStateToProps = (state) => {
+    return {
+        startdate:state.itinerary.startdate,
+        enddate:state.itinerary.enddate
+    };
+};
 
-export default connect()(DateSelect);
+export default connect(mapStateToProps)(DateSelect);

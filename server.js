@@ -26,7 +26,7 @@ auth(passport, passportJWT, jwtOptions);
 
 mongoose.Promise = global.Promise;
 
-// mongoose.connect("mongodb://localhost:3000/vacation");
+mongoose.connect("mongodb://localhost:27017/vacation");
 
 app.use('/', routes);
 

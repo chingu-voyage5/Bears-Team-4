@@ -1,6 +1,6 @@
 const User = require('./models/user');
 
-User.find({}).remove().exec();
+// User.find({}).remove().exec(); // For testing purposes
 
 module.exports = function (passport, passportJWT, jwtOptions) {
     

@@ -1,3 +1,3 @@
 module.exports = (req, res) => {
-    res.json("Success");
+    res.json(req.user);
   };

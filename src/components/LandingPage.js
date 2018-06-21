@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import LogSign from './LogSign';
 import React, {Component} from 'react';
 import Step from './Step';
@@ -19,7 +20,7 @@ class LandingPage extends Component {
                 <div className="left">
                 <h1>Website Name</h1>
                 <p><img src="https://www.cricketwireless.com/content/dam/a/product/DAP/DAPW4105/DAPW4105-list.png"/>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt qui deserunt dignissimos at provident sunt ipsam quisquam iste harum laboriosam delectus cumque reprehenderit quaerat, fugiat debitis, assumenda nesciunt itaque nam!</p>
-                <button className="start">Start Now!</button>
+                <Link className="start button" to="itinerary">Start Now!</Link>
                 </div>
                 <div className="right">
                 <LogSign/>

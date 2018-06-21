@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
+import PlaceCard from './PlaceCard';
 import React, { Component } from 'react';
 import {changeType} from '../actions/itinerary';
-
 
 const type=[
     'airport',
@@ -30,20 +30,15 @@ class Suggestions extends Component {
     render(){
         return(
             <div>
-                <div style={{display:'inline-block'}}>
-                    <div>Places to go</div>
-                    <select value={this.props.type} onChange={(event)=>this.changeType(event)} >
-                        <option value ="default" disabled="disabled">Choose a type</option>
-                        {type.map((t,i)=>(<option key={i} value={t}>{t.replace('_',' ')}
-                        </option>))}
-                    </select>
-                </div>
-                <div style={{display:'inline-block'}}>
-                    <div>Added places</div>
-                    {this.props.itinerary.length>0?
-                        <ul>
-                            {this.props.itinerary.map((p,i)=>(<li key={i}>{p.name}</li>))}
-                        </ul>:<div>Nothing to show</div>
+                <h2>Search for Activities</h2>
+                <select value={this.props.type} onChange={(event)=>this.changeType(event)} >
+                    <option value ="default" disabled="disabled">Choose a type</option>
+                    {type.map((t,i)=>(<option key={i} value={t}>{t.replace('_',' ')}
+                    </option>))}
+                </select>
+                <div className="scroll" ref="container">
+                    {this.props.places.length >0?this.props.places.map((p,i)=>(<PlaceCard parent={this.refs.container} key={i} marker={p}/>))
+                        :<div>Nothing to show</div>
                     }
                 </div>
             </div>
@@ -54,9 +49,8 @@ class Suggestions extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        places: state.map.places,
-        type: state.map.type,
-        itinerary:state.map.itinerary
+        places: state.itinerary.places,
+        type: state.itinerary.type
     };
 };
 

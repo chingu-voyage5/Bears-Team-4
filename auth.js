@@ -1,23 +1,20 @@
-const _ = require("lodash");
+const User = require('./models/user');
 
-var users = [
-  {
-    id: 1,
-    name: 'test',
-    password: 'test'
-  }
-];
+// User.find({}).remove().exec(); // For testing purposes
 
 module.exports = function (passport, passportJWT, jwtOptions) {
     
     passport.use(new passportJWT.Strategy(jwtOptions, function(jwt_payload, next) {
+
+      User.findOne({'_id':jwt_payload.id}, function(err,user){
+        if(err) throw err;
+        if (user) {
+          next(null, user);
+        } else {
+          next(null, false);
+        }
+      });
     
-      var user = users[_.findIndex(users, {id: jwt_payload.id})];
-      if (user) {
-        next(null, user);
-      } else {
-        next(null, false);
-      }
     }));
         
 };

@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFB334;
+  background: linear-gradient(10deg, #FFD534, #ffb334)
+;  color: #1c1c1c;
+}
+
+header > * {
+  flex: 2;
+  padding: 1rem;
+  position: relative;
+}
+
+header > .left img {
+  float: right;
+  display: block;
+}
+
+header > .left p {
+  font-size: 18px;
+  line-height: 1.4em;
+}
+
+header > .right {
+  flex: 3;
+}
+
+.login-signup-modal {
+}
+
+.login-signup-modal form {
+  min-height: 60vh;
+  background: whitesmoke;
+  position: relative;
+  padding: 1rem 2rem;
+  border-radius: 3px;
+  border-top-left-radius: 0px;
+}
+
+form a {
+  display: block;
+  color: #FF8234;
+  margin: 1rem 0px;
+}
+
+form .tabs {
+  position: absolute;
+  bottom: 100%;
+  margin-left: -2rem;
+}
+
+.tab {
+  display: inline-block;
+  margin-right: 10px;
+  background: gainsboro;
+  padding: .2em 1em;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+}
+
+.tab.active {
+/*   background: black;
+  color: white; */
+  background: whitesmoke;
+  font-weight: bold;
+}
+
+form h2 {
+  margin: 0px;
+}
+
+.input-field {
+   margin: 1em 0px;
+}
+
+.input-field input {
+  display: block;
+  border: 1px solid lightgray;
+  font-size: 18px;
+  border-radius: 3px;
+}
+
+.help-text {
+  font-size: 14px;
+}
+
+button,.button {
+  background: #7BA3DB;
+  border: none;
+  font-size: 18px;
+  font-family: Nunito;
+  padding: .2em .6em; 
+  color: whitesmoke;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px powderblue;
+  text-decoration:none;
+}
+
+.start {
+  background: #FF8234;
+  box-shadow: 2px 2px 4px #ff995a;
+  padding: .4rem 1rem;
+}
+
+.howitworks {
+  position: relative;
+  top: -15px;
+  margin: 0 auto;
+  display: block;
+  background: none;
+  color: black;
+  font-weight: bold;
+  box-shadow: none;
+  background: whitesmoke;
+  border: 1px solid gainsboro;
+  padding: .2rem 1rem !important;
+}
+
+button > i {
+  border: 2px solid black;
+  padding: 2px 4px;
+  border-radius: 50%;
+}
+
+.steps {
+  margin-top: -46px;
+  padding: 6rem;
+}
+
+.step {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.step h2 {
+  margin-top: 0px;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+.step p {
+  font-size: 18px;
+}
+
+.step:nth-of-type(even) .info {
+  order: 2;
+}
+
+.step:last-of-type {
+  margin-bottom: 0px;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+.mobile {
+  display: none;
+}
+
+.login-signup-modal-mobile {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0,0,0,.8);
+}
+
+.login-signup-modal-mobile .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: whitesmoke;
+  background: none;
+  box-shadow: none;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.login-signup-modal-mobile form {
+  background: whitesmoke;
+  margin: 4em 1em;
+  padding: 1em;
+  position: relative;
+}
+
+.login-signup-modal-mobile .tabs {
+  margin-left: -1em;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 450px) {
+  .mobile {
+    display: block;
+  }
+  .login-signup-modal-mobile {
+    display: none;
+  }
+  header {
+    padding: 1rem 0px;
+    padding-top: 2rem;
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  header .left {
+    padding-bottom: 0px;
+  }
+  
+  header .left h2 {
+    text-align: center;
+  }
+  
+  header .left button {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  
+  header > .left img{
+    display: none;  
+  }
+  
+  header > .right {
+    display: none;
+  }
+  
+  .login-signup-btn {
+    padding-top: 0px;
+    padding-bottom: 2rem;
+  }
+  
+  .login-signup-btn button {
+    padding: .4rem 1rem;
+    box-shadow: none;
+  }
+  
+  .step {
+    flex-direction: column;
+  }
+  
+  .steps {
+    padding: 6rem 2rem;
+  }
+  
+  .step .info {
+    order: 1;
+  }
+  
+  .step img {
+    width: 355px;
+    height: 225px;
+  }
+}

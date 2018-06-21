@@ -28,14 +28,18 @@ mongoose.Promise = global.Promise;
 
 mongoose.connect("mongodb://localhost:27017/vacation");
 
+/*app.get('/',function(req,res){
+    res.json({test:true});
+})*/
+
 app.use('/', routes);
 
-app.use('/',express.static('build'));
+/*app.use('/',express.static('public'));
 
 app.get('/',function(req,res){
     res.sendFile(path.join(__dirname+'/index.html'));
 })
-
-app.listen(process.env.PORT || 3000,()=>
-    console.log("Server is listening")
+*/
+const listener = app.listen(8081,()=>
+    console.log("Server is listening on "+listener.address().port)
 )

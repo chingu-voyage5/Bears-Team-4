@@ -21,7 +21,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   },
-  "proxy": "http://travel-app-chingu-ccyqc.c9users.io:8081",
+  "proxy": "http://0.0.0.0:8081",
   "scripts": {
     "start": "PORT=8080 react-scripts start",
     "build": "react-scripts build",

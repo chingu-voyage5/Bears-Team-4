@@ -1,4 +1,7 @@
+import axios from 'axios';
+import {connect} from 'react-redux';
 import React, { Component } from 'react';
+import {logIn} from '../actions/auth';
 
 class Signup extends Component {
     constructor(){
@@ -10,37 +13,51 @@ class Signup extends Component {
             email:""
         };
     }
-    submitLogin(event){
+    submitSignup(event){
       event.preventDefault();
-      // Ajax to server to use passport here
-      alert('user :'+this.state.username+" password:"+this.state.password+
-      " confirm password: "+this.state.passwordcon+" email: "+this.state.email);
+      axios.post('/signup',{
+        name:this.state.username,
+        password:this.state.password,
+        email:this.state.email
+      }).then((response)=>{
+        this.props.dispatch(logIn(response.data.user));
+      }).catch((error)=>{
+        console.log(error);
+      })
     }
 
     render(){
         return(
-            <form>
+            <form onSubmit={(event)=>this.submitSignup(event)}>
               <h2>Signup</h2>
               <div className="input-field">
-                <input type="text"/>
+                <input type="text" onChange={(event) => {
+                  this.setState({username:event.target.value});
+                }}/>
                 <em className="help-text">
                   Username
                 </em>
               </div>
               <div className="input-field">
-                <input type="password"/>
+                <input type="password" onChange={(event) => {
+                  this.setState({password:event.target.value});
+                }}/>
                 <em className="help-text">
                   Password
                 </em>
               </div>
               <div className="input-field">
-                <input type="password"/>
+                <input type="password" onChange={(event) => {
+                  this.setState({passwordcon:event.target.value});
+                }}/>
                 <em className="help-text">
                   Confirm password
                 </em>
               </div>
               <div className="input-field">
-                <input type="email"/>
+                <input type="email" onChange={(event) => {
+                  this.setState({email:event.target.value});
+                }}/>
                 <em className="help-text">
                   Email
                 </em>
@@ -51,4 +68,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+export default connect()(Signup);

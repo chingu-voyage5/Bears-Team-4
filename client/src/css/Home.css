@@ -97,7 +97,7 @@ form h2 {
   font-size: 14px;
 }
 
-button,.button {
+button {
   background: #7BA3DB;
   border: none;
   font-size: 18px;
@@ -106,6 +106,14 @@ button,.button {
   color: whitesmoke;
   border-radius: 3px;
   box-shadow: 2px 2px 4px powderblue;
+
+  
+}
+
+button > a {
+  font-size: 18px;
+  font-family: Nunito;
+  color: whitesmoke;
   text-decoration:none;
 }
 
@@ -206,6 +214,9 @@ footer {
   margin-left: -1em;
 }
 
+.right-float {
+  float:right;
+}
 /* MEDIA QUERIES */
 @media screen and (max-width: 450px) {
   .mobile {

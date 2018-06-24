@@ -15,7 +15,7 @@ class PlaceCard extends Component {
         };
     }
     componentWillReceiveProps(nextProps){
-        if (nextProps.scrollto!==this.props.scrollto&&nextProps.scrollto==this.props.marker.props.id){
+        if (nextProps.scrollto!==this.props.scrollto&&nextProps.scrollto==this.props.place.place_id){
             var child = ReactDOM.findDOMNode(this);
             var parent = this.props.parent;
             if (child.offsetTop < parent.scrollTop) {
@@ -29,8 +29,18 @@ class PlaceCard extends Component {
             }
         }
     }
+    formatMarkerProps(props){
+      const rtn = {
+          name:props.name,
+          rating:props.rating,
+          address:props.vicinity,
+          lat:props.geometry.location.lat(),
+          lng:props.geometry.location.lng(),
+      };
+      return rtn;
+    }
     showPopUp(props){
-        this.props.dispatch(showMarkerPopUp(props));
+        this.props.dispatch(showMarkerPopUp(this.formatMarkerProps(props)));
     }
     addItinerary(place){
         this.setState({settime:false});
@@ -39,8 +49,8 @@ class PlaceCard extends Component {
     render(){
         return(
             <div className="card">
-                <h3>{this.props.marker.props.name}</h3>
-                <h5>Rating: {this.props.marker.props.rating}</h5>
+                <h3>{this.props.place.name}</h3>
+                <h5>Rating: {this.props.place.rating}</h5>
                 {this.state.settime?
                 <div>
                     <div className="input-field">
@@ -55,12 +65,12 @@ class PlaceCard extends Component {
                             }
                         }/>
                     </div>
-                    <button onClick={()=>this.addItinerary(this.props.marker.props)}>Confirm</button>
-                    <button onClick={()=>this.showPopUp(this.props.marker.props)}>Show</button>
+                    <button onClick={()=>this.addItinerary(this.props.place)}>Confirm</button>
+                    <button onClick={()=>this.showPopUp(this.props.place)}>Show</button>
                 </div>
                 :<div>
                     <button onClick={()=>this.setState({settime:true})}>Add</button>
-                    <button onClick={()=>this.showPopUp(this.props.marker.props)}>Show</button>
+                    <button onClick={()=>this.showPopUp(this.props.place)}>Show</button>
                 </div>}
             </div>
         );

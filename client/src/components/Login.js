@@ -1,3 +1,6 @@
+import axios from 'axios';
+import {connect} from 'react-redux';
+import {logIn} from '../actions/auth';
 import React, { Component } from 'react';
 
 class Login extends Component {
@@ -10,8 +13,14 @@ class Login extends Component {
     }
     submitLogin(event){
       event.preventDefault();
-      // Ajax to server to use passport here
-      alert('user :'+this.state.username+" password:"+this.state.password);
+      axios.post('/login',{
+        name:this.state.username,
+        password:this.state.password
+      }).then((response)=>{
+        this.props.dispatch(logIn(response.data.user));
+      }).catch((error)=>{
+        console.log(error);
+      })
     }
 
     render(){
@@ -41,4 +50,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default connect()(Login);

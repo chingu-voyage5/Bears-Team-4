@@ -58,7 +58,7 @@ export default (state = {
             if (state.activeday in state.itinerary)
                 return {
                     ...state,
-                    itinerary:{...state.itinerary,[state.activeday]:[...state.itinerary[state.activeday],action.payload]}
+                    itinerary:{...state.itinerary,[state.activeday]:[...state.itinerary[state.activeday],action.payload]},
                 };
             else
                 return {
@@ -70,7 +70,7 @@ export default (state = {
             return{
                 ...state,
                 itinerary:Object.assign({},state.itinerary,{
-                    [state.activeday]:state.itinerary[state.activeday].map(p=>p.place.id===action.payload.id?
+                    [state.activeday]:state.itinerary[state.activeday].map(p=>p.place.place_id===action.payload.id?
                     {...p,datetime:action.payload.time}
                     :p)
                 })
@@ -80,7 +80,7 @@ export default (state = {
             return{
                 ...state,
                 itinerary:Object.assign({},state.itinerary,{
-                    [state.activeday]:state.itinerary[state.activeday].filter(p=>p.place.id!==action.payload)
+                    [state.activeday]:state.itinerary[state.activeday].filter(p=>p.place.place_id!==action.payload)
                 })
             };
         }

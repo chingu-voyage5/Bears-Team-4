@@ -19,10 +19,10 @@ class Schedule extends Component {
                 <i className="fas fa-caret-right" 
                 onClick={()=>this.props.dispatch(nextDay(this.props.activeday+1))}>
                 </i>}
-                {this.props.itinerary[this.props.activeday] &&
-                this.props.itinerary[this.props.activeday].sort((a,b)=>a.datetime-b.datetime).map(
-                    (p,i)=>(<ScheduleCard key={i} place={p.place} datetime={p.datetime}/>)
-                )}
+                {this.props.itinerary[this.props.activeday] && <div className="scroll">{
+                    this.props.itinerary[this.props.activeday].sort((a,b)=>a.datetime-b.datetime)
+                    .map((p,i)=>(<ScheduleCard key={i} place={p.place} datetime={p.datetime}/>))
+                }</div>}
             </div>
         )
     }

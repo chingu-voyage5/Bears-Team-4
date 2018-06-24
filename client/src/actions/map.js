@@ -7,6 +7,7 @@ export function selectPlace(latlng){
     };    
 }
 
+
 export function showMarkerPopUp(props){
     return function(dispatch){
         dispatch({

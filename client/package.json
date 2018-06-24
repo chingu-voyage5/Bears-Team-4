@@ -1,0 +1,31 @@
+{
+  "name": "pwa",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "google-maps-react": "^2.0.2",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "path": "^0.12.7",
+    "react": "^16.4.0",
+    "react-cookie": "^2.2.0",
+    "react-datepicker": "^1.5.0",
+    "react-dom": "^16.4.0",
+    "react-places-autocomplete": "^7.1.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "proxy": "http://0.0.0.0:8081",
+  "scripts": {
+    "start": "PORT=8080 react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "eject": "react-scripts eject"
+  }
+}

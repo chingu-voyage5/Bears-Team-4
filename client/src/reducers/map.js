@@ -3,10 +3,8 @@ export default (state = {
         lat: 51.505,
         lng: -0.09
     },
-    markerPosition:{
-        lat: 51.505,
-        lng: -0.09
-    },
+    markerLat: 51.505,
+    markerLng: -0.09,
     selectedPlace:{},
     showMarkerPopUp:false,
     showInfoPopUp:false,
@@ -26,12 +24,13 @@ export default (state = {
             };
         }
         case "SHOW_MARKER_POPUP":{
+            const {lat,lng,...place} = action.payload;
             return{
                 ...state,
                 showMarkerPopUp:true,
-                selectedPlace:action.payload,
-                markerPosition:action.payload.position
-                
+                selectedPlace:place,
+                markerLat:lat,
+                markerLng:lng
             }
         }
         case "CLOSE_MARKER_POPUP":{

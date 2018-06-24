@@ -37,7 +37,7 @@ class Suggestions extends Component {
                     </option>))}
                 </select>
                 <div className="scroll" ref="container">
-                    {this.props.places.length >0?this.props.places.map((p,i)=>(<PlaceCard parent={this.refs.container} key={i} marker={p}/>))
+                    {this.props.places.length >0?this.props.places.map((p,i)=>(<PlaceCard parent={this.refs.container} key={i} place={p}/>))
                         :<div>Nothing to show</div>
                     }
                 </div>

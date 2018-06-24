@@ -21,7 +21,8 @@ module.exports = (req, res) => {
         if(err) throw err;
         var payload = {id: newUser.id};
         var token = jwt.sign(payload, 'zse45tgb');
-        res.json({message: "Authenticated", token: token});
+        res.cookie('jwt',token);
+        res.json({message: "Authenticated", token: token, user:newUser.username});
       });
     }
     else{

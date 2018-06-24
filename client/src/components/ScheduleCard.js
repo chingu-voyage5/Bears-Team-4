@@ -15,11 +15,11 @@ class ScheduleCard extends Component {
     changeTime(event){
         event.preventDefault();
         const time = moment(this.state.hour+":"+this.state.minute, 'HH:mm');
-        this.props.dispatch(changeTime(time,this.props.place.id));
+        this.props.dispatch(changeTime(time,this.props.place.place_id));
         this.setState({setting:this.state.setting?false:true});
     }
     deletePlace(){
-        this.props.dispatch(deletePlace(this.props.place.id));
+        this.props.dispatch(deletePlace(this.props.place.place_id));
     }
     render(){
         return(
